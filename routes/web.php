@@ -19,15 +19,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'App\Http\Controllers\HomeController@show');
+Route::get('/home', 'App\Http\Controllers\HomeController@show')->middleware('auth');
 
-Route::get('/addTodo', 'App\Http\Controllers\AddTodoController@index');
+Route::get('/addTodo', 'App\Http\Controllers\AddTodoController@index')->middleware('auth');;
 
-Route::post('/addTodo/added', 'App\Http\Controllers\AddTodoController@store');
+Route::post('/addTodo/added', 'App\Http\Controllers\AddTodoController@store')->middleware('auth');;
 
-Route::get('/edit/{id}', 'App\Http\Controllers\AddTodoController@edit');
+Route::get('/edit/{id}', 'App\Http\Controllers\AddTodoController@edit')->middleware('auth');;
 
-Route::post('/update/{id}', 'App\Http\Controllers\AddTodoController@update');
+Route::post('/update/{id}', 'App\Http\Controllers\AddTodoController@update')->middleware('auth');;
 
-Route::get('/delete/{id}', 'App\Http\Controllers\AddTodoController@destroy');
+Route::get('/delete/{id}', 'App\Http\Controllers\AddTodoController@destroy')->middleware('auth');;
 
